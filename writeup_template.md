@@ -98,24 +98,23 @@ are bad, it means that the classifier architecture is too simple that it doesn't
 
 I used LeNet 5 as a starting point on this project. I took the original architecture and trained the net with the following parameters:
 
-BATCH_SIZE = 128
-Ori LeNet 5
-rate = 0.001
-EPOCH 15 ...
+Batch size = 128
+Learning rate = 0.001
+Epoch = 15
 
-diagram
+~~diagram~~
 
 The end results were 0.874 accuracy on validation and 0.990 accuracy on training. These results indicate an overfitting, so I tried to add an L2 regularization with the penalty gain
 (lambda error) of 0.001. I also increased the batch size to 512 to fully utilize the GPU memory that I had. The end results were as follows:
 
-Validation Accuracy = 0.838
-Training Accuracy = 0.964
+**Validation Accuracy = 0.838**
+**Training Accuracy = 0.964**
 
 At this point I was thinking that instead of regularize the training prematurely and causes underfitting, I should just try to achieve a very high training accuracy first and then
 regularize it afterwards. For this reason I increased the complexity of the network by doubling each convolution filter. The end result of the training were as follows:
 
-Validation Accuracy = 0.860
-Training Accuracy = 0.985
+**Validation Accuracy = 0.860**
+**Training Accuracy = 0.985**
 
 the result was better but it still needed an improvement. I saw that many deep neural network uses residual block that allows the hidden layer to learn the "identity" function of the
 input allowing more hidden layer to be stacked without losing the gradient by training (vanishing gradient). But ResNet is only practical if we have a very deep network and I don't
@@ -123,19 +122,18 @@ want to increase the depth of the network prematurely because it could increase 
 the internet and found out that many people mixed a high level and low level feature by flattening all the neurons from each layer steps (normally after the pooling) and connected it
 to a fully connected layer. So I applied this approach to my current net and got these end results:
 
-Validation Accuracy = 0.878
-Training Accuracy = 0.994
+**Validation Accuracy = 0.878**
+**Training Accuracy = 0.994**
 
 up until this point, the architecture is as follows:
 
-architecture
-
+~~architecture~~
 
 Afterwards I increased the epoch to 60 to let the network be trained longer. Instead of preprocessing the input image into a specific color space, I added a 1x1 convolution filter to
 allow the network to learn by itself, which colour channels are useful for this classification. The results were as follow:
 
-Validation Accuracy = 0.918
-Training Accuracy = 0.999
+**Validation Accuracy = 0.918**
+**Training Accuracy = 0.999**
 
 The accuracy was much better on the validation set. The accuracy of the training almost reached 1.000, it means that I could start to narrow the accuracy gap between validation and
 training set. I increase the penalty gain of the L2 regularization with the expectation that the gap between the two accuracies is narrowed without compensating much on the training
@@ -143,12 +141,12 @@ accuracy. But unfortunately the results are complete opposite, the validation as
 regularization causes the weights of the CNN to become much smaller until a point where they are almost zero. Based on this reasoning, I removed the L2 regularization and used a dropout
 regularization instead. The dropout probability that I used was 0.5 and the results were as follow:
 
-Validation Accuracy = 0.947
-Training Accuracy = 0.991
+**Validation Accuracy = 0.947**
+**Training Accuracy = 0.991**
 
 It gives us a much better accuracy and for this reason the dropout is kept for the regularization. The current architecture up until this point is as follows:
 
-architecture
+~~architecture~~
 
 However, the validation accuracy of 0.947 doesn't guarantee that the test set accuracy is at least 0.93, it means that it is better to push the validation accuracy higher.
 
@@ -158,42 +156,42 @@ stride by the next pooling. And then I also add one more layer on the fully conn
 
 The architecture is as follows:
 
-architecture
+~~architecture~~
 
 Results:
 
-Validation Accuracy = 0.943
-Training Accuracy = 0.999
+**Validation Accuracy = 0.943**
+**Training Accuracy = 0.999**
 
 The validation accuracy is comparable to the last training but the training is almost 1.000 so I kept the architecture. I tried max pool instead of average pool because people
 normally uses max pool
 
-Validation Accuracy = 0.933
-Training Accuracy = 0.999
+**Validation Accuracy = 0.933**
+**Training Accuracy = 0.999**
 
 I increased the epoch again to 150.
 
-Validation Accuracy = 0.940
-Training Accuracy = 1.000
+**Validation Accuracy = 0.940**
+**Training Accuracy = 1.000**
 
 I saw that the validation accuracy stays for a long time in 0.94, so in my opinion it was still overfit. Therefore I took the epoch back to 60 so that the training breaks early and
 then made the network simpler by removing one layer on the fully connected neurons that I had just added before. The results were as follows:
 
-Validation Accuracy = 0.950
-Training Accuracy = 0.993
+**Validation Accuracy = 0.950**
+**Training Accuracy = 0.993**
 
 I increased the epoch again to 150.
 
-Validation Accuracy = 0.957
-Training Accuracy = 0.998
+**Validation Accuracy = 0.957**
+**Training Accuracy = 0.998**
 
 the gap between validation and training accuracy was getting smaller but the network was a little bit under fit because the training accuracy was not 1.0, for this reason I added more
 complexity to the network. Instead of adding a new fully connected layer, I added the depth of the existing convolution filters.
 
-Validation Accuracy = 0.978
-Training Accuracy = 1.000
+**Validation Accuracy = 0.978**
+**Training Accuracy = 1.000**
 
-It worked!! And the test accuracy is: 0.968
+It worked!! And the test accuracy is: **0.968**
 
 ### Test a Model on New Images
 
