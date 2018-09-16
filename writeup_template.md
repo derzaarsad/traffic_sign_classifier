@@ -20,13 +20,14 @@ The goals / steps of this project are the following:
 [//]: # (Image References)
 
 [image1]: ./examples/visualization.png "Visualization"
-[image2]: ./examples/grayscale.jpg "Grayscaling"
+[image2]: ./examples/Figure_1.png "First Diagram"
 [image3]: ./examples/random_noise.jpg "Random Noise"
 [image4]: ./examples/4_Speed-limit-70kmh.jpg "Traffic Sign 1"
 [image5]: ./examples/11_Right-of-way.jpg "Traffic Sign 2"
 [image6]: ./examples/12_Priority-road.jpg "Traffic Sign 3"
 [image7]: ./examples/14_Stop.jpg "Traffic Sign 4"
 [image8]: ./examples/15_No-vehicles.jpg "Traffic Sign 5"
+[image9]: ./examples/Figure_16.png "Last Diagram"
 
 ## Rubric Points
 ### Here I will consider the [rubric points](https://review.udacity.com/#!/rubrics/481/view) individually and describe how I addressed each point in my implementation.  
@@ -134,7 +135,7 @@ Batch size = 128
 Learning rate = 0.001
 Epoch = 15
 
-~~diagram~~
+![alt text][image2]
 
 The end results were 0.874 accuracy on validation and 0.990 accuracy on training. These results indicate an overfitting, so I tried to add an L2 regularization with the penalty gain
 (lambda error) of 0.001. I also increased the batch size to 512 to fully utilize the GPU memory that I had. The end results were as follows:
@@ -224,6 +225,10 @@ complexity to the network. Instead of adding a new fully connected layer, I adde
 **Training Accuracy = 1.000**
 
 It worked!! And the test accuracy is: **0.968**
+
+And here is the last accuracy diagram
+
+![alt text][image9]
 
 ### Test a Model on New Images
 
