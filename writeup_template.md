@@ -199,8 +199,8 @@ It worked!! And the test accuracy is: **0.968**
 
 Here are five German traffic signs that I found on the web:
 
-![alt text][image4] ![alt text][image5] ![alt text][image6] 
-![alt text][image7] ![alt text][image8]
+![alt text][image4 =200x200] ![alt text][image5 =200x200] ![alt text][image6 =200x200] 
+![alt text][image7 =200x200] ![alt text][image8 =200x200]
 
 The first image might be difficult to classify because ...
 
