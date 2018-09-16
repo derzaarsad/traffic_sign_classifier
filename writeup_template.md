@@ -28,8 +28,8 @@ The goals / steps of this project are the following:
 [image7]: ./examples/14_Stop.jpg "Traffic Sign 4"
 [image8]: ./examples/15_No-vehicles.jpg "Traffic Sign 5"
 [image9]: ./examples/Figure_16.png "Last Diagram"
-[image10]: ./examples/architecture.png "Architecture"
-[image11]: ./examples/final_architecture.png "Final Architecture"
+[image10]: ./examples/architecture.jpg "Architecture"
+[image11]: ./examples/final_architecture.jpg "Final Architecture"
 
 ## Rubric Points
 ### Here I will consider the [rubric points](https://review.udacity.com/#!/rubrics/481/view) individually and describe how I addressed each point in my implementation.  
