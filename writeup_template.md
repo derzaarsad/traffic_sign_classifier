@@ -79,8 +79,6 @@ My final model consisted of the following layers:
 | Convolution 3x3     	| 1x1 stride, valid padding, outputs 30x30x32 	|
 | RELU					|												|
 | Max pooling	      	| 2x2 stride,  outputs 15x15x32 				|
-|						|												|
-|						|												|
 
 **Feature 2**
 
@@ -92,8 +90,6 @@ My final model consisted of the following layers:
 | Convolution 3x3     	| 1x1 stride, same padding, outputs 15x15x64 	|
 | RELU					|												|
 | Max pooling	      	| 3x3 stride,  outputs 5x5x64 				    |
-|						|												|
-|						|												|
  
 **Feature 3**
 
@@ -104,8 +100,6 @@ My final model consisted of the following layers:
 | RELU					|												|
 | Convolution 3x3     	| 1x1 stride, valid padding, outputs 3x3x128 	|
 | RELU					|												|
-|						|												|
-|						|												|
 
 **Fully connected layer**
 
@@ -117,9 +111,7 @@ My final model consisted of the following layers:
 | Fully connected		| 84 output        							    |
 | RELU					|												|
 | Fully connected		| 43 output        							    |
-| Softmax				| etc.        									|
-|						|												|
-|						|												|
+| Softmax				|           									|
 
 #### 3. Describe how you trained your model. The discussion can include the type of optimizer, the batch size, number of epochs and any hyperparameters such as learning rate.
 
@@ -261,24 +253,25 @@ Here are the results of the prediction:
 The model was able to correctly guess 4 of the 5 traffic signs, which gives an accuracy of 80%. The classifier misclassify No vehicle sign to a Yield sign. If we look closely, both of the signs are similar with the difference
 that one has a triangle form and the other is round. This kind of failure can be caused by an unbalanced data distribution in the training set between both signs. The effect is that the classifier did not learn enough about
 how to differentiate between both signs and instead classify the input to a class that has more data in the training set because the classifier knows it better than the other. With this theory, it is not surprising that in our
-case the classifier chose to classify the No vehicles input as Yield because the data distribution figure shows that the Yield sign data set is much bigger than the No vehicle sign data set
+case the classifier chose to classify the No vehicles input as Yield because the data distribution figure shows that the Yield sign data set is much bigger than the No vehicle sign data set.
 
 #### 3. Describe how certain the model is when predicting on each of the five new images by looking at the softmax probabilities for each prediction. Provide the top 5 softmax probabilities for each image along with the sign type of each probability. (OPTIONAL: as described in the "Stand Out Suggestions" part of the rubric, visualizations can also be provided such as bar charts)
 
 The code for making predictions on my final model is located in the 11th cell of the Ipython notebook.
 
-For the first image, the model is relatively sure that this is a stop sign (probability of 0.6), and the image does contain a stop sign. The top five soft max probabilities were
+The top five soft max probabilities were:
 
 | Probability         	|     Prediction	        					| 
 |:---------------------:|:---------------------------------------------:| 
-| 0.99959     			| Speed limit 70kmh   							| 
-| 0.99996424     		| Right-of-way at the next intersection 		|
 | 1.					| Priority road									|
-| 0.9999273	      		| Stop					 				        |
 | 0.9999757				| No vehicles      							    |
+| 0.99996424     		| Right-of-way at the next intersection 		|
+| 0.9999273	      		| Stop					 				        |
+| 0.99959     			| Speed limit 70kmh   							| 
 
 
-For the second image ... 
+All of the predictions has a high confidence including the misclassified No vehicles sign. This shows how critical it is to train with a balanced distributed data set, especially if the object looks similar to each other.
+In our case, we can multiply the No vehicles sign training data, augmenting it with perspective transformation, until it has a comparable amount with the Yield sign.
 
 ### (Optional) Visualizing the Neural Network (See Step 4 of the Ipython notebook for more details)
 #### 1. Discuss the visual output of your trained network's feature maps. What characteristics did the neural network use to make classifications?
