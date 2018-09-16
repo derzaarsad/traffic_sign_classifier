@@ -29,6 +29,7 @@ The goals / steps of this project are the following:
 [image8]: ./examples/15_No-vehicles.jpg "Traffic Sign 5"
 [image9]: ./examples/Figure_16.png "Last Diagram"
 [image10]: ./examples/architecture.png "Architecture"
+[image11]: ./examples/final_architecture.png "Final Architecture"
 
 ## Rubric Points
 ### Here I will consider the [rubric points](https://review.udacity.com/#!/rubrics/481/view) individually and describe how I addressed each point in my implementation.  
@@ -220,9 +221,13 @@ complexity to the network. Instead of adding a new fully connected layer, I adde
 
 It worked!! And the test accuracy is: **0.968**
 
-And here is the last accuracy diagram
+Here is the last accuracy diagram
 
 ![alt text][image9]
+
+And here is the last classifier architecture:
+
+![alt text][image11]
 
 ### Test a Model on New Images
 
