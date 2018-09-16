@@ -28,6 +28,7 @@ The goals / steps of this project are the following:
 [image7]: ./examples/14_Stop.jpg "Traffic Sign 4"
 [image8]: ./examples/15_No-vehicles.jpg "Traffic Sign 5"
 [image9]: ./examples/Figure_16.png "Last Diagram"
+[image10]: ./examples/architecture.png "Architecture"
 
 ## Rubric Points
 ### Here I will consider the [rubric points](https://review.udacity.com/#!/rubrics/481/view) individually and describe how I addressed each point in my implementation.  
@@ -160,7 +161,7 @@ to a fully connected layer. So I applied this approach to my current net and got
 
 up until this point, the architecture is as follows:
 
-~~architecture~~
+![alt text][image10]
 
 Afterwards I increased the epoch to 60 to let the network be trained longer. Instead of preprocessing the input image into a specific color space, I added a 1x1 convolution filter to
 allow the network to learn by itself, which colour channels are useful for this classification. The results were as follow:
@@ -177,19 +178,12 @@ regularization instead. The dropout probability that I used was 0.5 and the resu
 **Validation Accuracy = 0.947**
 **Training Accuracy = 0.991**
 
-It gives us a much better accuracy and for this reason the dropout is kept for the regularization. The current architecture up until this point is as follows:
-
-~~architecture~~
-
-However, the validation accuracy of 0.947 doesn't guarantee that the test set accuracy is at least 0.93, it means that it is better to push the validation accuracy higher.
+It gives us a much better accuracy and for this reason the dropout is kept for the regularization. However, the validation accuracy of 0.947 doesn't guarantee that the test set accuracy
+is at least 0.93, it means that it is better to push the validation accuracy higher.
 
 My plan was to add more convolution filters, making the whole network to have 3 levels of convolution layers that will be stacked together as a fully connected layer. To achieve
 this, firstly I changed the filter from 5x5 to 3x3 to keep more outputs on the early layers. The size of the output of the first pooling is an odd number, to avoid padding I used 3
 stride by the next pooling. And then I also add one more layer on the fully connected layer so that the amount of neurons on the hidden layers doesn't drop dramatically.
-
-The architecture is as follows:
-
-~~architecture~~
 
 Results:
 
