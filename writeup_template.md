@@ -22,11 +22,11 @@ The goals / steps of this project are the following:
 [image1]: ./examples/visualization.png "Visualization"
 [image2]: ./examples/grayscale.jpg "Grayscaling"
 [image3]: ./examples/random_noise.jpg "Random Noise"
-[image4]: ./test_image/4_Speed-limit-70kmh.jpg "Traffic Sign 1"
-[image5]: ./test_image/11_Right-of-way.jpg "Traffic Sign 2"
-[image6]: ./test_image/12_Priority-road.jpg "Traffic Sign 3"
-[image7]: ./test_image/14_Stop.jpg "Traffic Sign 4"
-[image8]: ./test_image/15_No-vehicles.jpg "Traffic Sign 5"
+[image4]: ./examples/4_Speed-limit-70kmh.jpg "Traffic Sign 1"
+[image5]: ./examples/11_Right-of-way.jpg "Traffic Sign 2"
+[image6]: ./examples/12_Priority-road.jpg "Traffic Sign 3"
+[image7]: ./examples/14_Stop.jpg "Traffic Sign 4"
+[image8]: ./examples/15_No-vehicles.jpg "Traffic Sign 5"
 
 ## Rubric Points
 ### Here I will consider the [rubric points](https://review.udacity.com/#!/rubrics/481/view) individually and describe how I addressed each point in my implementation.  
@@ -199,8 +199,8 @@ It worked!! And the test accuracy is: **0.968**
 
 Here are five German traffic signs that I found on the web:
 
-![alt text]([image4] =200x200) ![alt text]([image5] =200x200) ![alt text]([image6] =200x200)
-![alt text]([image7] =200x200) ![alt text]([image8] =200x200)
+![alt text][image4] ![alt text][image5] ![alt text][image6] 
+![alt text][image7] ![alt text][image8]
 
 The first image might be difficult to classify because ...
 
