@@ -67,19 +67,59 @@ This is the first time I've developed a CNN classifier from scratch and I've dec
 
 My final model consisted of the following layers:
 
+**Feature 1**
+
 | Layer         		|     Description	        					| 
 |:---------------------:|:---------------------------------------------:| 
 | Input         		| 32x32x3 RGB image   							| 
-| Convolution 3x3     	| 1x1 stride, same padding, outputs 32x32x64 	|
+| Convolution 1x1     	| 1x1 stride, outputs 32x32x32 	                |
 | RELU					|												|
-| Max pooling	      	| 2x2 stride,  outputs 16x16x64 				|
-| Convolution 3x3	    | etc.      									|
-| Fully connected		| etc.        									|
-| Softmax				| etc.        									|
+| Convolution 3x3     	| 1x1 stride, same padding, outputs 32x32x32 	|
+| RELU					|												|
+| Convolution 3x3     	| 1x1 stride, valid padding, outputs 30x30x32 	|
+| RELU					|												|
+| Max pooling	      	| 2x2 stride,  outputs 15x15x32 				|
+|						|												|
+|						|												|
+
+**Feature 2**
+
+| Layer         		|     Description	        					| 
+|:---------------------:|:---------------------------------------------:| 
+| Input         		| 15x15x32 Feature 1 output   					| 
+| Convolution 3x3     	| 1x1 stride, same padding, outputs 15x15x64 	|
+| RELU					|												|
+| Convolution 3x3     	| 1x1 stride, same padding, outputs 15x15x64 	|
+| RELU					|												|
+| Max pooling	      	| 3x3 stride,  outputs 5x5x64 				    |
 |						|												|
 |						|												|
  
+**Feature 3**
 
+| Layer         		|     Description	        					| 
+|:---------------------:|:---------------------------------------------:| 
+| Input         		| 5x5x64 Feature 2 output   					| 
+| Convolution 3x3     	| 1x1 stride, same padding, outputs 5x5x128 	|
+| RELU					|												|
+| Convolution 3x3     	| 1x1 stride, valid padding, outputs 3x3x128 	|
+| RELU					|												|
+|						|												|
+|						|												|
+
+**Fully connected layer**
+
+| Layer         		|     Description	        					| 
+|:---------------------:|:---------------------------------------------:| 
+| Input         		| 9952 Flattened output of Feature 1,2,3   		| 
+| Fully connected		| 120 output        							|
+| RELU					|												|
+| Fully connected		| 84 output        							    |
+| RELU					|												|
+| Fully connected		| 43 output        							    |
+| Softmax				| etc.        									|
+|						|												|
+|						|												|
 
 #### 3. Describe how you trained your model. The discussion can include the type of optimizer, the batch size, number of epochs and any hyperparameters such as learning rate.
 
@@ -203,7 +243,7 @@ Here are five German traffic signs that I found on the web:
 ![alt text][image7] ![alt text][image8]
 
 The image qualities are good, however only one image has a square form, therefore all of the other images must be squashed to fit a square form. This is not a problem and also with this approach we can test the robustness of the
-classifier
+classifier.
 
 #### 2. Discuss the model's predictions on these new traffic signs and compare the results to predicting on the test set. At a minimum, discuss what the predictions were, the accuracy on these new predictions, and compare the accuracy to the accuracy on the test set (OPTIONAL: Discuss the results in more detail as described in the "Stand Out Suggestions" part of the rubric).
 
